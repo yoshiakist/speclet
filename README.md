@@ -26,10 +26,10 @@ git submodule add git@github.com:yoshiakist/speclet.git speclet
 
 ### Writing Your First Speclet
 
-Create a Markdown file under your project's specification directory, organized by domain:
+Create a Markdown file under your project's speclets directory. Organize subdirectories however you like — by domain, module, feature area, or any scheme that fits your project:
 
 ```
-docs/domains/
+docs/speclets/
   auth/
     001_user_can_sign_up_with_email.md
     002_user_can_reset_password.md
@@ -231,7 +231,7 @@ The marker can be placed at the top of a file, above a class or function definit
       "type": "usecase",
       "status": "draft",
       "domain": "quotation",
-      "path": "docs/domains/quotation/001_見積を新規作成できる.md",
+      "path": "docs/speclets/quotation/001_見積を新規作成できる.md",
       "last_verified": "2026-03-01"
     }
   ],
@@ -255,7 +255,7 @@ Each entry mirrors the front-matter of a speclet file, with two derived fields:
 | `name` | front-matter | Human-readable title |
 | `type` | front-matter | Classification (free-form string) |
 | `status` | front-matter | Current lifecycle status |
-| `domain` | directory name | Extracted from the speclet's parent directory (e.g., `docs/domains/quotation/` → `"quotation"`) |
+| `domain` | directory name | Extracted from the speclet's parent directory (e.g., `docs/speclets/quotation/` → `"quotation"`) |
 | `path` | file system | Relative path from project root to the speclet file |
 | `last_verified` | front-matter | Date of last verification |
 
@@ -273,7 +273,7 @@ Each entry records a `@speclet` marker found in the source tree:
 
 - **index.json is a cache, not a source of truth.** If it's missing or stale, run `speclet index` to regenerate. Never edit it manually.
 - **Speclet files are the source of truth.** All authoritative data lives in the front-matter and body of each `.md` file.
-- **Domain-level INDEX.md** can also be generated for human browsing — a Markdown table summarizing all speclets in a domain.
+- **Per-directory INDEX.md** can also be generated for human browsing — a Markdown table summarizing all speclets in a subdirectory.
 
 ## Comparison with Other Tools
 
